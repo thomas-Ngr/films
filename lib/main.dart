@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'infos.dart';
+import 'routes.dart';
+import 'films.dart';
+import 'user.dart';
+import 'detail.dart';
+import 'drawer.dart';
 
 void main() {
   runApp(MyApp());
