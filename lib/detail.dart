@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 //import 'drawer.dart';
 import 'infos.dart';
 
-//int selectedFilm = 0;
-
 class PageDetail extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -12,7 +10,6 @@ class PageDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text('Details'),
       ),
-      //drawer: CustomDrawer(),
       body: Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.85,
@@ -28,17 +25,16 @@ class BodyDetail extends StatelessWidget {
   Widget build(BuildContext context) {
 
     Map film = films[selectedFilm];
-    print(films.length);
 
     columnActors(film) {
       List<Widget> actorsList = [];
       for ( int i = 0; i < film['actors'].length && i < 3; i++) {
         actorsList.add(
-          Flexible(child:Text(
+          Text(
             film['actors'][i],
             overflow: TextOverflow.clip
-            ))
-          );
+            )
+        );
       }
       return actorsList;
     }
@@ -54,6 +50,7 @@ class BodyDetail extends StatelessWidget {
     return Column(
       children: [
         SizedBox(height: 40),
+        // title
         Text(
           film['title'],
           style: TextStyle(
@@ -62,6 +59,7 @@ class BodyDetail extends StatelessWidget {
           ),
         ),
         SizedBox(height: 40),
+        // poster and infos
         Row(
           children: [
             SizedBox(
@@ -80,11 +78,17 @@ class BodyDetail extends StatelessWidget {
                 ],),
                 SizedBox(height: 10),
                 // acteurs
-                Text('Acteurs : ', style: TextStyle(fontWeight: FontWeight.bold)),
+                
+                Text(
+                  'Acteurs : ',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+               
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: columnActors(film),
                 ),
+                
                 SizedBox(height: 10),
                 // genres
                 Text('Genres : ', style: TextStyle(fontWeight: FontWeight.bold)),

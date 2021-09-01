@@ -10,14 +10,6 @@ class PageFilms extends StatefulWidget {
 
 class _PageFilmsState extends State<PageFilms> {
   int index = 0;
-  int selectIndex = 0;
-
-  chooseFilm(int index) {
-    setState(() {
-      selectIndex = index;
-    });
-    //List film = films[1];
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +19,6 @@ class _PageFilmsState extends State<PageFilms> {
       ),
       drawer: CustomDrawer(),
       body: test(),
-//      body: BodyFilms(),
     );
   }
 }
@@ -43,19 +34,13 @@ class test extends StatefulWidget {
 
 class _testState extends State<test> {
   int index = 0;
-  int selectIndex = 0;
 
-  chooseFilm(int index) {
-    setState(() {
-      selectIndex = index;
-    });
-  }
   columnGenres(films,index) {
-      List<Widget> actorsList = [];
+      List<Widget> genresList = [];
       for ( int i = 0; i < films[index]['genres'].length && i < 3; i++) {
-        actorsList.add(Text(films[index]['genres'][i]));
+        genresList.add(Text(films[index]['genres'][i]));
       }
-      return actorsList;
+      return genresList;
     }
 
   @override
@@ -80,7 +65,7 @@ class _testState extends State<test> {
                             backgroundColor:
                                 MaterialStateProperty.all(Colors.transparent)),
                         onPressed: () {
-                          chooseFilm(index);
+                          setState(() {selectedFilm = index;});
                           Navigator.pushNamed(context, 'detail');
                         },
                         child: Padding(
