@@ -46,9 +46,11 @@ class _testState extends State<test> {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.889,
+          height: MediaQuery.of(context).size.height * .889,
           width: MediaQuery.of(context).size.width * 1,
           child: Align(
             alignment: Alignment.centerLeft,
@@ -57,43 +59,57 @@ class _testState extends State<test> {
               itemCount: films.length,
               itemBuilder: (context, index) {
                 return Container(
-                    child: OutlinedButton(
-                        style: ButtonStyle(
-                            shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(25.0))),
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.transparent)),
-                        onPressed: () {
-                          setState(() {selectedFilm = index;});
-                          Navigator.pushNamed(context, 'detail');
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                          child: Column(
-                            children: [
-                              SizedBox(
-                                height: MediaQuery.of(context).size.height * 0.8,
-                                width: MediaQuery.of(context).size.width * 0.82,
-                                child: Image(
-                                  image: NetworkImage(films[index]['posterLink']),
+                    child: Padding(
+                          padding: const EdgeInsets.all(30.0),
+                          child: OutlinedButton(
+                              style: ButtonStyle(
+                                  shape: MaterialStateProperty.all(
+                                      RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(25.0))),
+                                  backgroundColor:
+                                      MaterialStateProperty.all(Colors.transparent)),
+                              onPressed: () {
+                                setState(() {selectedFilm = index;});
+                                Navigator.pushNamed(context, 'detail');
+                              },
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                                child: Column(
+                                  children: [
+                                    SizedBox(
+                                      height: MediaQuery.of(context).size.height * 0.65,
+                                      width: MediaQuery.of(context).size.width * 0.7,
+                                      child: Image(
+                                        image: NetworkImage(films[index]['posterLink']),
+                                      ),
+                                    ),
+                                    Text(
+                                      films[index]['title'],
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold
+                                      ),
+                                    ),
+                                    Text(
+                                      "année de sortie : ${films[index]['year']}",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold
+                                      ),
+                                    ),
+                                    Text(
+                                      "genre : ${films[index]['genres'][0]}",
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.bold
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                              Text(
-                                films[index]['title'],
-                              ),
-                              Text(
-                                "année de sortie : ${films[index]['year']}"
-                              ),
-                              Text(
-                                "genre : ${films[index]['genres'][0]}"
-                              ),
-                            ],
+                              )
                           ),
-                          /*Text(
-                        "${films[index]['title']}"
-                      ),*/
-                        )));
+                        ),
+                      );
               },
             ),
           ),
