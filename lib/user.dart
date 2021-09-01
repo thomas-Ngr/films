@@ -141,12 +141,23 @@ class _ProfileState extends State<Profile> {
                         ),
                         Text(user['mail'],
                             style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold)),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold)),
                       ],
+                    ),
+                    SizedBox(
+                      height: 10,
                     ),
                     /*
                     * CAROUSEL
                     */
+                    Text(
+                      'Films favoris',
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
                     SingleChildScrollView(
                       child: SizedBox(
                         height: 300,
