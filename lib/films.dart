@@ -48,13 +48,13 @@ class _testState extends State<test> {
     return Column(
       children: [
         SizedBox(
-          height: 600,
-          width: 500,
+          height: MediaQuery.of(context).size.height * 0.889,
+          width: MediaQuery.of(context).size.width * 1,
           child: Align(
             alignment: Alignment.centerLeft,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: films.length, //films.lengh
+              itemCount: films.length,
               itemBuilder: (context, index) {
                 return Container(
                     child: OutlinedButton(
@@ -73,8 +73,8 @@ class _testState extends State<test> {
                           child: Column(
                             children: [
                               SizedBox(
-                                height: 400,
-                                width: 400,
+                                height: MediaQuery.of(context).size.height * 0.8,
+                                width: MediaQuery.of(context).size.width * 0.82,
                                 child: Image(
                                   image: NetworkImage(films[index]['posterLink']),
                                 ),
