@@ -33,7 +33,12 @@ class BodyDetail extends StatelessWidget {
     columnActors(film) {
       List<Widget> actorsList = [];
       for ( int i = 0; i < film['actors'].length && i < 3; i++) {
-        actorsList.add(Text(film['actors'][i]));
+        actorsList.add(
+          Flexible(child:Text(
+            film['actors'][i],
+            overflow: TextOverflow.clip
+            ))
+          );
       }
       return actorsList;
     }
@@ -60,7 +65,7 @@ class BodyDetail extends StatelessWidget {
         Row(
           children: [
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.5,
+              width: MediaQuery.of(context).size.width * 0.4,
               height: MediaQuery.of(context).size.height * 0.3,
               child: Image.network(film['posterLink']),
             ),
@@ -73,13 +78,14 @@ class BodyDetail extends StatelessWidget {
                   Text('Année : ', style: TextStyle(fontWeight: FontWeight.bold)),
                   Text(film['year']),
                 ],),
-                SizedBox(width: 20),
+                SizedBox(height: 10),
                 // acteurs
                 Text('Acteurs : ', style: TextStyle(fontWeight: FontWeight.bold)),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: columnActors(film),
                 ),
+                SizedBox(height: 10),
                 // genres
                 Text('Genres : ', style: TextStyle(fontWeight: FontWeight.bold)),
                 Column(
@@ -90,7 +96,7 @@ class BodyDetail extends StatelessWidget {
           ],
         ),
         SizedBox(height: 40),
-        Text(film['description']),
+        Text(film['description'])
       ]
     );
   }
