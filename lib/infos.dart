@@ -1,10 +1,13 @@
-Object films = [
+
+int selectedFilm = 0;
+
+List<Map> films = [
   {
     'title': 'Les tontons flingueurs',
     'posterLink': 'https://www.posterissim.com/62-large_default/les-tontons-flingueurs.jpg',
     'year': '1963',
     'genres': ['Comédie'],
-    'description': '',
+    'description': "Fernand Naudin, ex-truand rangé, est appelé d'urgence par un des anciens \"frères d'armes\" qui lui a gardé toute sa confiance : surnommé \"le Mexicain\", ce dernier est mourant et veut charger Fernand non seulement de ses affaires mais aussi de veiller sur sa fille Patricia. Héritage très lourd, car les affaires en question sont plutôt louches - un tripot, une distillerie clandestine et une maison close ! - et convoitées par toute la bande qui secondait le Mexicain (notamment Théo et les frères Volfoni, Raoul et Paul) ; quant à Patricia, c'est une écervelée qui ne pense qu'à Antoine - un jeune snob tout aussi superficiel...",
     'actors': ['Lino Ventura', 'Bernard Blier', 'Francis Blanche'],
   },
   {

@@ -10,6 +10,7 @@ import 'detail.dart';
  * ROUTES
  */
 
+
 final pageRoutes = {
   'films': (context) => PageFilms(),
   'detail': (context) => PageDetail(),
@@ -20,7 +21,7 @@ final pageRoutes = {
  * STATE
  */
 
-int selectedFilm = 0;
+//int selectedFilm = 0;
 
 void main() {
   runApp(MyApp());
